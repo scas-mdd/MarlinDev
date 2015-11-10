@@ -189,20 +189,18 @@ typedef struct _u8g_box_t u8g_box_t;
 /* device structure */
 
 #ifdef __XC8
-/* device prototype */
-typedef uint8_t (*u8g_dev_fnptr)(void *u8g, void *dev, uint8_t msg, void *arg);
-
-/* com prototype */
-typedef uint8_t (*u8g_com_fnptr)(void *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr);
+  typedef void u8g_proto_t;
+  typedef void u8g_dev_proto_t;
 #else
-/* device prototype */
-typedef uint8_t (*u8g_dev_fnptr)(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg);
-
-/* com prototype */
-typedef uint8_t (*u8g_com_fnptr)(u8g_t *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr);
+  typedef u8g_t u8g_proto_t;
+  typedef u8g_dev_t u8g_dev_proto_t;
 #endif
 
+/* device prototype */
+typedef uint8_t (*u8g_dev_fnptr)(u8g_proto_t *u8g, u8g_dev_proto_t *dev, uint8_t msg, void *arg);
 
+/* com prototype */
+typedef uint8_t (*u8g_com_fnptr)(u8g_proto_t *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr);
 
 struct _u8g_dev_t
 {
@@ -2027,4 +2025,3 @@ extern const u8g_fntpgm_uint8_t u8g_font_profont29r[] U8G_FONT_SECTION("u8g_font
 #endif
 
 #endif /* _U8G_H */
-
