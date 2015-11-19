@@ -17,6 +17,7 @@
 #define PID_MAX BANG_MAX // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
 
+#if ENABLED(PIDTEMP)
 // Ultimaker
 #define  DEFAULT_Kp 22.2
 #define  DEFAULT_Ki 1.08
